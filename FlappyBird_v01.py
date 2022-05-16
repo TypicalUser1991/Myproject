@@ -53,15 +53,20 @@ if __name__ == '__main__':
 
         # Render Stuff
         WINDOW.blit(image_buffer['background'], (0,0))
-        WINDOW.blit(image_buffer['player'], (player_x, player_y))
+
+        try:
+            WINDOW.blit(image_buffer['player'], (player_x, player_y))
+        except Exception:
+            pass
+
         WINDOW.blit(image_buffer['bottom'], (0, GROUND_Y))
 
         # Constant Player Gravity
         player_y += 1
 
         # When Player touches Ground
-        if player_y == int(GROUND_Y):
-            print('END')
+        if player_y + 34 == int(GROUND_Y):
+            del image_buffer['player']
 
         # Player Movement
         if keys[pygame.K_UP]:
