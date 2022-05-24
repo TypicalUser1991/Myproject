@@ -26,6 +26,8 @@ ASSETS_FOLDER = 'Assets' # Change only this Variable fo different path
 BACKGROUND_PATH = ASSETS_FOLDER + '\\background.png'
 PLAYER_PATH = ASSETS_FOLDER + '\\char.png'
 BOTTOM_PATH = ASSETS_FOLDER + '\\bottom.png'
+TOP_PIPE_PATH = ASSETS_FOLDER + '\\Pipe.png'
+BOTTOM_PIPE_PATH = ASSETS_FOLDER + '\\Pipe2.png'
 
 if __name__ == '__main__':
 
@@ -35,6 +37,8 @@ if __name__ == '__main__':
     load_image(BACKGROUND_PATH, 'background', image_buffer)
     load_image(PLAYER_PATH, 'player', image_buffer)
     load_image(BOTTOM_PATH, 'bottom', image_buffer)
+    load_image(TOP_PIPE_PATH, 'top_pipe', image_buffer)
+    load_image(BOTTOM_PIPE_PATH, 'bottom_path', image_buffer)
 
     # Player Values
     player_x = int(WIDTH/8)
