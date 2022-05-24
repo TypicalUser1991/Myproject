@@ -48,7 +48,7 @@ if __name__ == '__main__':
     running = True
 
 
-    i = 0
+    background_x = 0
     while running:
 
         keys = pygame.key.get_pressed()
@@ -58,12 +58,15 @@ if __name__ == '__main__':
 
         # Render Stuff
         WINDOW.fill((0,0,0))
-        WINDOW.blit(image_buffer['background'],(i,0))
-        WINDOW.blit(image_buffer['background'],(WIDTH+i,0))
-        if (i==-WIDTH):
-            WINDOW.blit(image_buffer['background'],(WIDTH+i,0))
-            i=0
-        i-=0.5
+
+        ## Render Background
+        WINDOW.blit(image_buffer['background'],(background_x,0))
+        WINDOW.blit(image_buffer['background'],(WIDTH + background_x,0))
+        if (background_x == -WIDTH):
+            WINDOW.blit(image_buffer['background'],(WIDTH + background_x,0))
+            background_x = 0
+        background_x -= 0.5
+
         WINDOW.blit(image_buffer['player'], (player_x, player_y))
         WINDOW.blit(image_buffer['bottom'], (0, GROUND_Y))
 
@@ -81,6 +84,6 @@ if __name__ == '__main__':
             pygame.quit()
 
         for event in pygame.event.get():
-            if event.type == pygame.QUIT or player_y == int(GROUND_Y):
+            if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
