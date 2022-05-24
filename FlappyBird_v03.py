@@ -80,8 +80,8 @@ if __name__ == '__main__':
         pygame.display.update()
 
         # When Player touches Ground
-        if player_y == int(GROUND_Y):
-            pygame.quit()
+        if player_y + 34 == int(GROUND_Y):
+            running = False
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
